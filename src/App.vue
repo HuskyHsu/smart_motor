@@ -9,7 +9,7 @@
         text-color="#fff"
         active-text-color="#ffd04b"
       >
-        <el-menu-item index="0"><img src="/cover.png" style="height:55px"></el-menu-item>
+        <el-menu-item index="0"><img src="<%= BASE_URL %>cover.png" style="height:55px"></el-menu-item>
         <el-menu-item index="1" @click="to_user()">控制器資訊</el-menu-item>
         <el-menu-item index="4">空間資訊</el-menu-item>
         <el-submenu index="5">
