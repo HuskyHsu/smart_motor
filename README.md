@@ -25,5 +25,10 @@ npm run test
 npm run lint
 ```
 
+### 發布dist資料夾到gh-pages
+```
+git subtree push --prefix dist origin gh-pages
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
