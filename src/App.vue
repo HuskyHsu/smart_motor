@@ -9,11 +9,11 @@
         text-color="#fff"
         active-text-color="#ffd04b"
       >
-        <el-menu-item index="home" @click="to_home()" id="home">
+        <el-menu-item index="home" @click="to('home')" id="home">
           <img src="cover.png" style="height:55px">
         </el-menu-item>
-        <el-menu-item index="controllers" @click="to_user()">控制器資訊</el-menu-item>
-        <el-menu-item index="map" @click="to_map()">空間資訊</el-menu-item>
+        <el-menu-item index="controllers" @click="to('controllers')">控制器資訊</el-menu-item>
+        <el-menu-item index="map" @click="to('map')">空間資訊</el-menu-item>
         <el-submenu index="5">
           <template slot="title">統計分析</template>
           <el-menu-item index="2-1">抽水量轉換</el-menu-item>
@@ -35,27 +35,22 @@ export default {
     };
   },
   methods: {
-    to_user() {
+    to (name) {
       if (typeof this.$route.params.user !== "undefined") {
         this.$router.push({
-          name: "controllers",
+          name: name,
           params: { user: this.$route.params.user }
         });
       } else {
         this.$router.push({ name: "home" });
+        this.activeIndex = "home";
       }
     },
-    to_home() {
-      this.$router.push({ name: "home" });
-    },
-    to_map() {
-      this.$router.push({ name: "map" });
-    }
   },
   watch: {
     $route(to) {
       this.activeIndex = to.name;
-    }
+    },
   }
 };
 </script>
