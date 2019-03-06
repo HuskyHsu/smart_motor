@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import home from './home.vue'
 import user from './user.vue'
+import map from './map.vue'
 import controllers from "./components/controllers.vue";
 import record from "./components/record.vue";
 
@@ -27,6 +28,11 @@ const router = new VueRouter({
           path: '',
           component: controllers,
           name: 'controllers'
+        },
+        {
+          path: 'map',
+          component: map,
+          name: 'map',
         },
         {
           path: ':id',

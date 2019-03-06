@@ -32,5 +32,4 @@ export default {
     transform: translateX(-430px);
     opacity: 0;
   }
-
 </style>

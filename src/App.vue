@@ -9,9 +9,11 @@
         text-color="#fff"
         active-text-color="#ffd04b"
       >
-        <el-menu-item index="0"><img src="cover.png" style="height:55px"></el-menu-item>
-        <el-menu-item index="1" @click="to_user()">控制器資訊</el-menu-item>
-        <el-menu-item index="4">空間資訊</el-menu-item>
+        <el-menu-item index="home" @click="to_home()" id="home">
+          <img src="cover.png" style="height:55px">
+        </el-menu-item>
+        <el-menu-item index="controllers" @click="to_user()">控制器資訊</el-menu-item>
+        <el-menu-item index="map" @click="to_map()">空間資訊</el-menu-item>
         <el-submenu index="5">
           <template slot="title">統計分析</template>
           <el-menu-item index="2-1">抽水量轉換</el-menu-item>
@@ -29,19 +31,36 @@
 export default {
   data() {
     return {
-      activeIndex: "1"
+      activeIndex: this.$route.name
     };
   },
   methods: {
     to_user() {
-      this.$router.push({ name: 'controllers', params: {user: this.$route.params.user} });
+      if (typeof this.$route.params.user !== "undefined") {
+        this.$router.push({
+          name: "controllers",
+          params: { user: this.$route.params.user }
+        });
+      } else {
+        this.$router.push({ name: "home" });
+      }
     },
+    to_home() {
+      this.$router.push({ name: "home" });
+    },
+    to_map() {
+      this.$router.push({ name: "map" });
+    }
+  },
+  watch: {
+    $route(to) {
+      this.activeIndex = to.name;
+    }
   }
 };
 </script>
 
 <style scoped>
-
 .el-header,
 .el-footer {
   background-color: #b3c0d1;
@@ -56,5 +75,4 @@ export default {
   color: #333;
   min-height: calc(100vh - 121px);
 }
-
 </style>

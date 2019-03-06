@@ -12,8 +12,10 @@
     "echarts": "^4.2.0-rc.2",
     "echarts-stat": "^1.1.1",
     "element-ui": "^2.5.2",
+    "leaflet": "^1.4.0",
     "vue": "^2.5.21",
-    "vue-router": "^3.0.2"
+    "vue-router": "^3.0.2",
+    "vue2-leaflet": "^2.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",

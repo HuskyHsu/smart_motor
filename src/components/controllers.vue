@@ -38,7 +38,7 @@
       </el-table-column>
       <el-table-column align="center" label="數據記錄" width="100">
         <template slot-scope="scope">
-          <el-button size="mini" @click="to_record(scope.row.id, scope.row.name)">記錄</el-button>
+          <el-button size="mini" @click="to_record(scope.row.id)">記錄</el-button>
         </template>
       </el-table-column>
       <el-table-column align="center" label="地圖" width="100">
@@ -56,7 +56,6 @@ import get_data from "../api/get_data";
 export default {
   created() {
     let self = this;
-    self.user = this.$route.params.user;
 
     Promise.resolve(get_data("controller", { user: self.user })).then(d => {
       if (d.status === "OK") {
@@ -98,7 +97,7 @@ export default {
   },
   data() {
     return {
-      user: "",
+      user: this.$route.params.user,
       controllers: []
       // record: {}
     };
@@ -106,8 +105,8 @@ export default {
   components: {},
   computed: {},
   methods: {
-    to_record(id, name) {
-      this.$router.push({ name: "record", params: { id: id },props: { name: name } });
+    to_record(id) {
+      this.$router.push({ name: "record", params: { id: id } });
     },
     open_map(lat, lng) {
       window.open(
