@@ -127,15 +127,16 @@ export default {
 </script>
 
 <style>
-.el-main {
+/* .el-main {
   padding: 0;
-}
+} */
 
 #map {
   height: calc(100vh - 121px);
+  margin: -20px;
 }
 
-img.on {
+img.leaflet-marker-icon.on {
   filter: hue-rotate(160deg);
 }
 
